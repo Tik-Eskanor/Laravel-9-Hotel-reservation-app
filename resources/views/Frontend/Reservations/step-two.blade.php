@@ -1,6 +1,6 @@
 <x-web-layout>
     <section class="menus py-10">
-        <div class="container p-5 md:mx-10">
+        <div class="container py-5 px-10">
             <div class="w-full md:w-2/3 mx-auto">
                  <div class="flex flex-col md:flex-row flex-wrap shadow-xl items-center">
                      <div class="md:w-1/2 md:min-w-[300px] md:rounded-l-md rounded-t-md w-full bg-orange-500 flex items-center">

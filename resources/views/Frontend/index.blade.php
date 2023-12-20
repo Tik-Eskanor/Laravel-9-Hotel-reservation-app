@@ -39,7 +39,7 @@
         </section>
 
         <section class="about-us bg-orange-600 py-10">
-            <div class="container p-5 mx-auto md:mx-10">
+            <div class="container py-5 px-10 mx-auto">
                 <div class="flex md:flex-row flex-col flex-wrap justify-between items-center">
                     <div class="md:basis-[45%]  md:min-w[300px] w-full">
                        <div class="texts">
@@ -70,7 +70,7 @@
         </section>
 
        <section class="menus py-10">
-          <div class="container p-5 md:mx-10">
+          <div class="container py-5 px-10">
              <h3 class="font-bold text-orange-700 text-xl text-center">Our Menu</h3>
              <h3 class="font-bold text-black  mt-2 text-5xl text-center">Today's Speciality</h3>
               <div class="flex flex-wrap flex-col md:flex-row justify-between mt-16">

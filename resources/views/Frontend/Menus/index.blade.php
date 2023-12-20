@@ -1,6 +1,6 @@
 <x-web-layout>
     <section class="menus py-10">
-        <div class="container p-5 md:mx-10">
+        <div class="container py-5 px-10">
            <h3 class="font-bold text-orange-700 text-xl text-center">Our Menus</h3>
            <h3 class="font-bold text-black  mt-2 text-5xl text-center">Available Dishes</h3>
             <div class="flex flex-wrap flex-col md:flex-row justify-between mt-16">
