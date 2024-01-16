@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2023 at 11:34 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Jan 16, 2024 at 10:16 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -41,9 +41,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(5, 'Pasta', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606158-Pasta.jpg', '2023-08-21 15:22:38', '2023-08-21 15:36:33'),
-(6, 'Stakes', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606370-Stakes.jpg', '2023-08-21 15:26:10', '2023-08-21 15:38:40'),
-(7, 'Desert', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606479-Desert.jpg', '2023-08-21 15:27:59', '2023-08-21 15:39:17'),
+(5, 'Pasta', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606158-Pasta.jpg', '2023-08-21 15:22:38', '2023-12-20 10:29:55'),
+(6, 'Steakes', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606370-Stakes.jpg', '2023-08-21 15:26:10', '2023-08-21 15:38:40'),
+(7, 'Dessert', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606479-Desert.jpg', '2023-08-21 15:27:59', '2023-08-21 15:39:17'),
 (8, 'French', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nobis', '1692606509-French.jpg', '2023-08-21 15:28:29', '2023-08-21 15:40:45'),
 (9, 'Specials', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692611150-Specials.jpg', '2023-08-21 16:45:50', '2023-08-21 16:45:50'),
 (10, 'Pizza', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692611279-Pizza.jpg', '2023-08-21 16:47:59', '2023-08-21 16:47:59');
@@ -78,9 +78,9 @@ INSERT INTO `category_menu` (`category_id`, `menu_id`) VALUES
 (9, 11),
 (10, 7),
 (9, 12),
-(9, 14),
-(10, 14),
-(9, 7);
+(9, 7),
+(10, 15),
+(9, 15);
 
 -- --------------------------------------------------------
 
@@ -90,11 +90,11 @@ INSERT INTO `category_menu` (`category_id`, `menu_id`) VALUES
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -106,9 +106,9 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `menus` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -119,16 +119,16 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `name`, `description`, `image`, `price`, `created_at`, `updated_at`) VALUES
-(4, 'Fixed Pasta', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609665-Fixed Pasta.jpg', '100.01', '2023-08-20 00:30:16', '2023-08-21 16:21:06'),
-(5, 'English Pasts', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609858-English Pasts.jpg', '100.01', '2023-08-20 00:31:28', '2023-08-21 16:24:18'),
-(7, 'Pastal Coral', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609924-Pastal Coral.jpg', '200.01', '2023-08-21 16:25:24', '2023-08-21 16:25:24'),
-(8, 'Clean Stake', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610068-Clean Stake.jpg', '201.01', '2023-08-21 16:27:48', '2023-08-21 16:27:48'),
-(9, 'Bufallo Stake', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610158-Bufallo Stake.jpg', '500.01', '2023-08-21 16:29:18', '2023-08-21 16:29:18'),
-(10, 'Dinner pie', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610392-Dinner pie.jpg', '102.01', '2023-08-21 16:33:12', '2023-08-21 16:33:12'),
-(11, 'Cream Rolls', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610550-Dersert.jpg', '300.01', '2023-08-21 16:35:50', '2023-08-21 17:59:33'),
-(12, 'Sauced Fries', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610646-Sauced Fries.jpg', '300.01', '2023-08-21 16:37:26', '2023-08-21 16:37:26'),
-(13, 'Sea Soup', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610688-Sea Soup.jpg', '300.01', '2023-08-21 16:38:08', '2023-08-21 16:38:08'),
-(14, 'Chicken Pizza', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692613230-Chicken Pizza.jpg', '100.01', '2023-08-21 17:20:30', '2023-08-21 17:20:30');
+(4, 'Fixed Pasta', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609665-Fixed Pasta.jpg', 100.01, '2023-08-20 00:30:16', '2023-12-20 10:31:13'),
+(5, 'English Pasts', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609858-English Pasts.jpg', 100.01, '2023-08-20 00:31:28', '2023-08-21 16:24:18'),
+(7, 'Pastal Coral', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692609924-Pastal Coral.jpg', 200.01, '2023-08-21 16:25:24', '2023-08-21 16:25:24'),
+(8, 'Clean Stake', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610068-Clean Stake.jpg', 201.01, '2023-08-21 16:27:48', '2023-08-21 16:27:48'),
+(9, 'Bufallo Stake', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610158-Bufallo Stake.jpg', 500.01, '2023-08-21 16:29:18', '2023-08-21 16:29:18'),
+(10, 'Dinner pie', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610392-Dinner pie.jpg', 102.01, '2023-08-21 16:33:12', '2023-08-21 16:33:12'),
+(11, 'Cream Rolls', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610550-Dersert.jpg', 300.01, '2023-08-21 16:35:50', '2023-08-21 17:59:33'),
+(12, 'Sauced Fries', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610646-Sauced Fries.jpg', 300.01, '2023-08-21 16:37:26', '2023-08-21 16:37:26'),
+(13, 'Sea Soup', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1692610688-Sea Soup.jpg', 300.01, '2023-08-21 16:38:08', '2023-08-21 16:38:08'),
+(15, 'Chicken Pizza', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In, asperiores.', '1703071993-Chicken Pizza.jpg', 100.01, '2023-12-20 10:33:13', '2023-12-20 10:33:13');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ INSERT INTO `menus` (`id`, `name`, `description`, `image`, `price`, `created_at`
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -165,8 +165,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -178,11 +178,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -197,10 +197,10 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `reservations` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tel_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `tel_number` varchar(255) NOT NULL,
   `res_date` datetime NOT NULL,
   `table_id` bigint(20) UNSIGNED NOT NULL,
   `guest_number` int(11) NOT NULL,
@@ -213,10 +213,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `first_name`, `last_name`, `email`, `tel_number`, `res_date`, `table_id`, `guest_number`, `created_at`, `updated_at`) VALUES
-(10, 'Res 1', 'Res 1', 'tik.eskanor@gmail.com', '09082486', '2023-08-23 19:07:00', 5, 4, '2023-08-23 23:48:55', '2023-08-23 23:48:55'),
-(11, 'Res 2', 'Res 2', 'tik.eskanor@gmail.com', '09082486', '2023-08-29 19:07:00', 5, 2, '2023-08-23 23:52:21', '2023-08-23 23:52:21'),
-(12, 'Res 3', 'Res 3', 'tik.eskanor@gmail.com', '09082486', '2023-08-24 19:07:00', 5, 1, '2023-08-23 23:54:38', '2023-08-23 23:54:38'),
-(13, 'fsrdfv', 'esrgf', 'tik.eskanor@gmail.com', '09082486', '2023-08-25 19:07:00', 1, 2, '2023-08-24 00:43:09', '2023-08-24 00:43:09');
+(14, 'Daniel', 'Chucks', 'chucks@gmail.com', '0908683685', '2023-12-21 18:00:00', 7, 4, '2023-12-20 10:41:19', '2023-12-20 10:41:19'),
+(17, 'Mike', 'Olu', 'chucks@gmail.com', '070625255', '2023-12-22 20:00:00', 9, 3, '2023-12-20 11:02:24', '2023-12-20 11:02:24');
 
 -- --------------------------------------------------------
 
@@ -226,10 +224,10 @@ INSERT INTO `reservations` (`id`, `first_name`, `last_name`, `email`, `tel_numbe
 
 CREATE TABLE `tables` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `guest_number` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'available',
-  `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'available',
+  `location` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -239,9 +237,10 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `name`, `guest_number`, `status`, `location`, `created_at`, `updated_at`) VALUES
-(1, 'Table 1', 3, 'available', 'front', '2023-08-20 00:38:34', '2023-08-20 01:11:03'),
-(4, 'Table 2', 2, 'available', 'inside', '2023-08-23 23:46:16', '2023-08-23 23:46:16'),
-(5, 'Table 3', 4, 'available', 'inside', '2023-08-23 23:46:40', '2023-08-23 23:46:40');
+(7, 'Table 1', 4, 'unavailable', 'front', '2023-12-20 10:37:52', '2023-12-20 11:01:33'),
+(8, 'Table 2', 2, 'available', 'inside', '2023-12-20 10:42:04', '2023-12-20 10:42:04'),
+(9, 'Table 3', 5, 'available', 'outside', '2023-12-20 10:46:39', '2023-12-20 10:46:39'),
+(10, 'Table 4', 3, 'available', 'inside', '2023-12-20 10:47:03', '2023-12-20 10:55:36');
 
 -- --------------------------------------------------------
 
@@ -251,12 +250,12 @@ INSERT INTO `tables` (`id`, `name`, `guest_number`, `status`, `location`, `creat
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_admin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `is_admin` varchar(255) NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -358,7 +357,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -376,13 +375,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
